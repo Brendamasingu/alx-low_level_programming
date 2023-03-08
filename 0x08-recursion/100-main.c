@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
  * main - check the code
  *
@@ -9,7 +8,6 @@
 int main(void)
 {
     int r;
-
     r = is_palindrome("level");
     printf("%d\n", r);
     r = is_palindrome("redder");
