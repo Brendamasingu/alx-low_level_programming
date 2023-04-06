@@ -3,27 +3,50 @@
  * add_node - adds a new node at the beginning
  * of a list_t list.
  * @head: head of the linked list.
- * @str: string to store in the list.
- * Return: address of the head.
+ * @str: string to be added to the new node
+ *
+ * Return: address of the new element. or NULL if it failed
  */
 
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new;
-	size_t nchar;
+	list_t *new_node;
 
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
+	if (head == NULL || str == NULL)
 		return (NULL);
 
-	new->str = strdup(str);
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
+		return (NULL);
 
-	for (nchar = 0; str[nchar]; nchar++)
-		;
+	new_node->str = strdup(str);
+	if (new_node->str == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->len = _strlen(new_node->str);
+	new_node->next = *head;
+	*head = new_node;
 
-	new->len = nchar;
-	new->next = *head;
-	*head = new;
+	return (new_node);
+}
 
-	return (*head);
+/**
+ * _strlen - returns the length of a string
+ * @s: string
+ *
+ * Return: length of the string
+ */
+unsigned int _strlen(char *s)
+{
+	unsigned int len = 0;
+
+	while (*s != '\0')
+	{
+		len++;
+		s++;
+	}
+
+	return (len);
 }
