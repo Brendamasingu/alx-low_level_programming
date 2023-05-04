@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * author brendamasingu
- * binary_to_uint - converts a binary number to unsigned int
- * @b: string containing the binary number
- * brenda love this
- * Return: the converted number
+ * binary_to_uint - converts a binary number to an
+ * unsigned int.
+ * @b: binary.
+ *
+ * Return: unsigned int.
  */
+
 unsigned int binary_to_uint(const char *b)
 {
 	int i;
